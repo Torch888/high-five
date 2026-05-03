@@ -90,6 +90,24 @@ high-five/
 
 ---
 
+## How We Built It
+
+<!-- ✏️ MIRIAM — add a paragraph here about the build process, decisions you made, or anything about the architecture. Then commit it! -->
+
+---
+
+## Demo & Screenshots
+
+<!-- ✏️ SUSAN — add a short description of the demo flow here, or paste in a screenshot link. Then commit it! -->
+
+---
+
+## Meet the Team
+
+<!-- ✏️ TALIZ — add the team bios here (names, roles, fun facts — whatever you like). Then commit it! -->
+
+---
+
 ## Deployment
 
 The app is deployed on **Streamlit Cloud**. Secrets are managed via the Streamlit Cloud UI — do not commit `.env` to GitHub.
