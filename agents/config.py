@@ -26,4 +26,4 @@ def get_llm_config() -> dict:
         "temperature": 0.7,
     }
 
-LLM_CONFIG = get_llm_config()
+LLM_CONFIG = None  # use get_llm_config() at call time

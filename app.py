@@ -203,7 +203,7 @@ def page_onboarding():
                 unsafe_allow_html=True,
             )
             q1 = st.text_area(
-                "",
+                "Who are you",
                 placeholder="Tell us about yourself, your niche, where you're from…",
                 height=100,
                 key="input_q1",
@@ -217,7 +217,7 @@ def page_onboarding():
                 unsafe_allow_html=True,
             )
             q2 = st.text_area(
-                "",
+                "What do you want to create",
                 placeholder="Platforms, formats, topics that excite you…",
                 height=100,
                 key="input_q2",
@@ -231,7 +231,7 @@ def page_onboarding():
                 unsafe_allow_html=True,
             )
             q3 = st.text_area(
-                "",
+                "What do you want to achieve",
                 placeholder="Brand deals? Full-time creator? Build a community?",
                 height=100,
                 key="input_q3",

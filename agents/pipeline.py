@@ -5,7 +5,6 @@ from contextlib import redirect_stdout, redirect_stderr
 
 from autogen import ConversableAgent, UserProxyAgent
 
-from agents.config import LLM_CONFIG
 from utils.search import search
 from utils.mock_data import MOCK_METRICS
 
@@ -49,23 +48,24 @@ def _call_agent(name: str, system_message: str, task: str) -> str:
     with redirect_stdout(buf), redirect_stderr(buf):
         result = proxy.initiate_chat(agent, message=task, max_turns=1)
 
-    # Try ChatResult object first
+    # ChatResult.chat_history — last entry is the agent reply
     if result and hasattr(result, "chat_history") and result.chat_history:
-        for msg in reversed(result.chat_history):
-            if msg.get("role") == "assistant":
-                return msg["content"]
+        last = result.chat_history[-1]
+        content = last.get("content", "")
+        if content:
+            return content
 
-    # Fallback: proxy.chat_messages
-    for msg in reversed(proxy.chat_messages.get(agent, [])):
-        if msg.get("role") == "assistant":
-            return msg["content"]
+    # proxy stores agent messages keyed by agent object; last item is agent reply
+    msgs = proxy.chat_messages.get(agent, [])
+    if msgs:
+        return msgs[-1].get("content", "")
 
-    # Last resort: agent's last message
+    # agent stores its own messages keyed by proxy
     msgs = agent.chat_messages.get(proxy, [])
     if msgs:
         return msgs[-1].get("content", "")
 
-    return ""
+    return buf.getvalue()  # last resort: captured stdout
 
 
 # ── Agent 1: Audience Intelligence ────────────────────────────────
