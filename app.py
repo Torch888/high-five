@@ -418,10 +418,6 @@ def page_dashboard():
 
     st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
 
-    # ── Debug expander ─────────────────────────────────────────────
-    with st.expander("🔍 Debug — Raw Agent Output", expanded=False):
-        st.json(r)
-
     # ── KPI strip ──────────────────────────────────────────────────
     ov = metrics.get("overview", {})
     k1, k2, k3, k4 = st.columns(4)
