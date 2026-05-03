@@ -114,15 +114,18 @@ header[data-testid="stHeader"] { background: transparent; }
 
 /* Text inputs */
 .stTextArea textarea {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(255,255,255,0.12) !important;
+    background: rgba(255,255,255,0.92) !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
     border-radius: 10px !important;
-    color: white !important;
+    color: #111111 !important;
     font-size: 15px !important;
 }
 .stTextArea textarea:focus {
     border-color: rgba(147,51,234,0.6) !important;
     box-shadow: 0 0 0 2px rgba(147,51,234,0.15) !important;
+}
+.stTextArea textarea::placeholder {
+    color: rgba(0,0,0,0.4) !important;
 }
 
 /* Dividers */
