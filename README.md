@@ -115,9 +115,7 @@ We built CreatorCrew in one day at the AG2 Hackathon in NYC. The core of the app
 
 ## Deployment
 
-The app is deployed on **Streamlit Cloud**. Secrets are managed via the Streamlit Cloud UI — do not commit `.env` to GitHub.
-
-To redeploy: push to `main` and Streamlit Cloud auto-deploys.
+The app is deployed on **Streamlit Cloud**. Secrets are managed via the Streamlit Cloud UI
 
 ---
 
