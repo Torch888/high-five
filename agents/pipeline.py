@@ -13,128 +13,128 @@ from utils.mock_data import MOCK_METRICS
 # ── Mock mode ──────────────────────────────────────────────────────
 
 MOCK_AUDIENCE = {
-    "persona_name": "Style-Conscious Gen Z Dreamer",
-    "demographics": "18–24, urban US, multicultural backgrounds, students or early-career creatives",
-    "platforms": ["TikTok", "Instagram"],
-    "active_hours": "7–11 PM EST weekdays, 10 AM–10 PM weekends",
+    "persona_name": "注重潮流的 Z 世代梦想家",
+    "demographics": "18–24岁，城市青年，多元文化背景，学生或初级创意工作者",
+    "platforms": ["抖音", "小红书"],
+    "active_hours": "工作日晚 7–11 点，周末早 10 点–晚 10 点",
     "pain_points": [
-        "Wants trendy looks on a budget",
-        "Feels overwhelmed by fast-fashion choices",
-        "Struggles to find authentic style influencers"
+        "预算有限但想穿出潮流感",
+        "面对快时尚选择感到迷茫",
+        "找不到真实可信的风格博主"
     ],
     "content_preferences": [
-        "Thrift flips and budget makeovers",
-        "GRWM (Get Ready With Me) vlogs",
-        "Street style inspiration"
+        "二手改造和平价穿搭",
+        "出门准备（GRWM）视频",
+        "街头风格灵感"
     ],
-    "summary": "A budget-conscious Gen Z creative in the city who wants to express personal style without spending a fortune. They follow relatable creators who mix thrift finds with cultural identity."
+    "summary": "一位注重预算的城市 Z 世代创作者，希望在不花大钱的情况下表达个人风格。他们关注那些能将平价好物与文化自信结合的真实博主。"
 }
 
 MOCK_STRATEGY = {
     "content_pillars": [
-        {"name": "Thrift & Flip", "description": "Affordable thrift finds styled into high-fashion looks", "frequency": "3x/week", "platform": "TikTok"},
-        {"name": "Queens Street Style", "description": "Real NYC street fashion featuring diverse styles", "frequency": "2x/week", "platform": "TikTok"},
-        {"name": "GRWM on a Budget", "description": "Get-ready-with-me videos showing affordable outfit building", "frequency": "1x/week", "platform": "Instagram"},
-        {"name": "Culture & Style", "description": "Style stories rooted in cultural traditions and identity", "frequency": "1x/week", "platform": "Instagram"}
+        {"name": "二手改造", "description": "平价二手好物搭配出高定时装感", "frequency": "3次/周", "platform": "抖音"},
+        {"name": "城市街头风格", "description": "真实都市街拍展现多元风格", "frequency": "2次/周", "platform": "抖音"},
+        {"name": "预算穿搭", "description": "出门准备视频展示平价穿搭技巧", "frequency": "1次/周", "platform": "小红书"},
+        {"name": "文化与风格", "description": "扎根文化传统的风格故事", "frequency": "1次/周", "platform": "小红书"}
     ],
     "posting_schedule": {
-        "TikTok": ["Monday 7:00 PM EST", "Wednesday 8:00 PM EST", "Friday 6:30 PM EST"],
-        "Instagram": ["Tuesday 7:00 PM EST", "Thursday 8:00 PM EST"]
+        "抖音": ["周一 19:00", "周三 20:00", "周五 18:30"],
+        "小红书": ["周二 19:00", "周四 20:00"]
     },
     "target_brands": [
-        {"name": "Depop", "follower_trigger": "5K followers", "fit_reason": "Thrift-flip content aligns perfectly with Depop's second-hand fashion marketplace", "category": "Fashion Marketplace"},
-        {"name": "NA-KD", "follower_trigger": "10K followers", "fit_reason": "Budget-conscious Gen Z style matches their brand identity", "category": "Fashion"},
-        {"name": "ThredUp", "follower_trigger": "5K followers", "fit_reason": "Sustainable fashion messaging aligns with thrift content pillars", "category": "Sustainable Fashion"}
+        {"name": "闲鱼", "follower_trigger": "5000 粉丝", "fit_reason": "二手改造内容与闲鱼的闲置交易平台完美契合", "category": "二手交易平台"},
+        {"name": "URBAN REVIVO", "follower_trigger": "1万 粉丝", "fit_reason": "注重性价比的时尚风格符合品牌定位", "category": "时尚"},
+        {"name": "多抓鱼", "follower_trigger": "5000 粉丝", "fit_reason": "可持续时尚理念与二手改造内容方向一致", "category": "可持续时尚"}
     ],
     "six_month_roadmap": [
-        {"month": "Month 1-2", "milestone": "Reach 10K followers", "action": "Post 5x/week consistently, engage with niche hashtags"},
-        {"month": "Month 3-4", "milestone": "First brand deal inquiry", "action": "Build media kit, pitch to Depop/ThredUp affiliate programs"},
-        {"month": "Month 5-6", "milestone": "Monetise with brand partnerships", "action": "Launch Patreon or affiliate links, negotiate paid partnerships"}
+        {"month": "第1-2个月", "milestone": "达到 1 万粉丝", "action": "保持每周 5 更，积极参与热门话题"},
+        {"month": "第3-4个月", "milestone": "收到第一个品牌合作邀请", "action": "制作媒体工具包，向闲鱼/UR 申请 affiliate 计划"},
+        {"month": "第5-6个月", "milestone": "通过品牌合作变现", "action": "推出付费内容或 affiliate 链接，洽谈付费合作"}
     ]
 }
 
 MOCK_CONTENT = {
     "scripts": [
         {
-            "title": "I Turned an $8 Thrift Jacket Into a $200 Look",
-            "pillar": "Thrift & Flip",
-            "platform": "TikTok",
-            "hook": "You won't believe what I found at the thrift store today...",
-            "content": "POV: You walk into a random thrift store in Queens and find an $8 blazer that looks straight off the runway. Here's how I styled it three ways — date night, job interview, and a night out with friends. Which one's your fave?",
-            "cta": "Follow for more budget style inspiration!",
-            "hashtags": ["#ThriftFlip", "#BudgetStyle", "#NYCFashion", "#SustainableFashion", "#ThriftHaul"]
+            "title": "8 块钱的二手外套穿出 200 块的感觉",
+            "pillar": "二手改造",
+            "platform": "抖音",
+            "hook": "你绝对想不到我今天在二手店淘到了什么…",
+            "content": "POV：你在城市街角的二手店花 8 块钱买了一件看起来像高定的外套。我搭了三种风格——约会、面试、和朋友出去浪。你最喜欢哪个？",
+            "cta": "关注我获取更多平价穿搭灵感！",
+            "hashtags": ["#二手改造", "#平价穿搭", "#城市时尚", "#可持续时尚", "#二手好物"]
         },
         {
-            "title": "Queens Street Style: Astoria Edition",
-            "pillar": "Queens Street Style",
-            "platform": "TikTok",
-            "hook": "Queens has the BEST street style and I'm proving it.",
-            "content": "From 30th Ave to Ditmars, Astoria serves LOOKS. I found 5 people with incredible style and asked them one question: 'What does fashion mean to you?' Their answers will inspire you.",
-            "cta": "Tag a friend who needs to see this!",
-            "hashtags": ["#QueensStyle", "#NYCStreetStyle", "#Astoria", "#FashionInspo"]
+            "title": "城市街头风格：老城区特辑",
+            "pillar": "城市街头风格",
+            "platform": "抖音",
+            "hook": "咱们老城区的穿搭真的太绝了，我证明给你看。",
+            "content": "从街头到巷尾，老城区到处是穿搭教科书。我找到了 5 个超会穿的人，问了他们同一个问题：'时尚对你来说意味着什么？'他们的回答会让你重新认识穿搭。",
+            "cta": "艾特一个需要看这个的朋友！",
+            "hashtags": ["#城市风格", "#街拍", "#穿搭灵感"]
         },
         {
-            "title": "GRWM for a Budget Date Night",
-            "pillar": "GRWM on a Budget",
-            "platform": "Instagram",
-            "hook": "Date night but make it affordable 💅",
-            "content": "Getting ready for a dinner date with a full look under $60! Thrifted top ($12), high-street jeans ($35), and DIY accessories ($8). Proof that style doesn't need a big budget.",
-            "cta": "Save this for your next date night!",
-            "hashtags": ["#GRWM", "#BudgetDate", "#AffordableFashion", "#ThriftedOutfit"]
+            "title": "约会穿搭准备 —— 预算篇",
+            "pillar": "预算穿搭",
+            "platform": "小红书",
+            "hook": "约会要美美的，但不用花大钱 💅",
+            "content": "用不到 60 块搞定一整身约会穿搭！二手店里淘的上衣（12 块），高街牛仔裤（35 块），自己 DIY 的配饰（8 块）。证明好品味不一定要贵。",
+            "cta": "收藏起来下次约会用！",
+            "hashtags": ["#出门准备", "#预算约会", "#平价穿搭", "#二手改造"]
         }
     ],
     "pitch_email": {
-        "subject": "Authentic Thrift-Flip Content Creator — Let's Partner!",
-        "brand": "Depop",
-        "body": "Hi Depop Team,\n\nI'm a NYC-based content creator specialising in thrift-flip fashion and sustainable style. My audience of 6,200+ engaged Gen Z followers loves affordable, eco-conscious fashion — exactly what Depop stands for.\n\nMy thrift-flip videos average 42K views, and my engagement rate is 7.8%. I'd love to collaborate on a campaign showcasing how Depop makes second-hand fashion trendy and accessible.\n\nI have specific content ideas that align with Depop's brand values. Would you be open to a quick call to discuss?\n\nBest,\n[Your Name]"
+        "subject": "真实二手改造内容创作者 —— 期待合作！",
+        "brand": "闲鱼",
+        "body": "闲鱼团队你们好！\n\n我是一名城市内容创作者，专注于二手改造时尚和可持续风格。我的 6000+ 粉丝喜欢平价又环保的时尚理念——正符合闲鱼的品牌定位。\n\n我的二手改造视频平均观看量 4.2 万，互动率 7.8%。我非常希望能与闲鱼合作，展示二手时尚也可以很潮很亲民。\n\n我有一些具体的合作想法与闲鱼的品牌价值观契合。方便约个时间聊聊吗？\n\n期待回复，\n[你的名字]"
     }
 }
 
 MOCK_PERFORMANCE = {
-    "summary": "Strong engagement with Thrift & Flip content outperforming all other pillars. TikTok drives 3x more views than Instagram.",
-    "top_content_type": "Thrift & Flip transformation videos (TikTok)",
-    "best_posting_time": "Monday 7:00 PM EST",
+    "summary": "二手改造内容表现强劲，超越所有其他内容支柱。抖音观看量是小红的 3 倍。",
+    "top_content_type": "二手改造视频（抖音）",
+    "best_posting_time": "周一 19:00",
     "insights": [
-        "Thrift Flip content averages 42K views — 2.3x the channel average",
-        "Engagement rate of 7.8% is exceptional for a growing creator (industry avg: 3-5%)",
-        "Instagram Reels underperforming TikTok — consider cross-posting strategy",
-        "Weekend posts show 30% higher save rates than weekday posts"
+        "二手改造内容平均 4.2 万观看 — 是频道平均的 2.3 倍",
+        "7.8% 的互动率对成长型创作者来说非常优秀（行业平均 3-5%）",
+        "小红书表现不如抖音 — 考虑跨平台发布策略",
+        "周末发布的保存率比工作日高 30%"
     ],
-    "growth_trend": "Steady upward trajectory — followers growing ~14% month-over-month. Current pace suggests 10K follower milestone in 6-8 weeks."
+    "growth_trend": "稳步上升趋势 — 粉丝每月增长约 14%。按当前速度，预计 6-8 周内达到 1 万粉丝里程碑。"
 }
 
 MOCK_OPTIMIZATION = {
     "recommendations": [
-        {"action": "Increase Thrift & Flip posts to 4x/week", "reason": "This pillar drives 2.3x average views and highest engagement", "expected_impact": "+35% follower growth rate"},
-        {"action": "Move Instagram Reels to weekend posting", "reason": "Weekend posts show 30% higher save rates", "expected_impact": "+20% Instagram engagement"},
-        {"action": "Create a weekly series 'Thrift Thursday'", "reason": "Consistent series builds audience habit and algorithm favorability", "expected_impact": "+50% repeat viewership"}
+        {"action": "将二手改造内容增加到每周 4 次", "reason": "该支柱驱动 2.3 倍平均观看量和最高互动率", "expected_impact": "粉丝增长率 +35%"},
+        {"action": "将小红书内容调整到周末发布", "reason": "周末发布的保存率高 30%", "expected_impact": "小红书互动 +20%"},
+        {"action": "创建固定栏目「周四改造日」", "reason": "固定栏目建立观众习惯和算法偏好", "expected_impact": "回访观看率 +50%"}
     ],
     "ab_tests": [
-        {"test": "Posting time for TikTok Thrift Flips", "variant_a": "Monday 7PM (current)", "variant_b": "Thursday 8PM"},
-        {"test": "Video length for Thrift Flips", "variant_a": "60-second cuts", "variant_b": "3-minute storytelling format"},
-        {"test": "Instagram Reels vs Carousel posts", "variant_a": "Video format", "variant_b": "Photo carousel with swipe-up"}
+        {"test": "抖音二手改造内容发布时间", "variant_a": "周一 19:00（当前）", "variant_b": "周四 20:00"},
+        {"test": "二手改造视频长度", "variant_a": "60 秒剪辑版", "variant_b": "3 分钟故事版"},
+        {"test": "小红书视频 vs 图文", "variant_a": "视频格式", "variant_b": "图文滑动格式"}
     ],
     "quick_wins": [
-        "Add a 'series intro' bumper to Thrift Thursday to build brand recognition",
-        "Reply to top 3 comments on every post within 1 hour of publishing",
-        "Cross-post TikTok Thrift Flips to Instagram Reels with minor edits"
+        "为「周四改造日」添加固定片头增强品牌识别",
+        "每条发布后 1 小时内回复前 3 条评论",
+        "将抖音二手改造内容稍作修改后同步发到小红书"
     ]
 }
 
 MOCK_PUBLISHING = {
     "weekly_schedule": [
-        {"day": "Monday", "time": "7:00 PM EST", "platform": "TikTok", "content_type": "Thrift & Flip", "notification": "📹 Post your Thrift Flip! Don't forget the before/after reveal."},
-        {"day": "Tuesday", "time": "7:00 PM EST", "platform": "Instagram", "content_type": "GRWM on a Budget", "notification": "📸 GRWM Reel due today! Keep it authentic and fun."},
-        {"day": "Wednesday", "time": "8:00 PM EST", "platform": "TikTok", "content_type": "Queens Street Style", "notification": "🎬 Street style day! Head out and capture the looks."},
-        {"day": "Thursday", "time": "8:00 PM EST", "platform": "Instagram", "content_type": "Culture & Style", "notification": "✨ Share your cultural style story — make it personal."},
-        {"day": "Friday", "time": "6:30 PM EST", "platform": "TikTok", "content_type": "Thrift & Flip", "notification": "🛍️ Second Thrift Flip of the week! Try a different aesthetic."}
+        {"day": "周一", "time": "19:00", "platform": "抖音", "content_type": "二手改造", "notification": "📹 发布改造视频！别忘了改造前后的对比。"},
+        {"day": "周二", "time": "19:00", "platform": "小红书", "content_type": "预算穿搭", "notification": "📸 今天要发预算穿搭！保持真实有趣。"},
+        {"day": "周三", "time": "20:00", "platform": "抖音", "content_type": "城市街头风格", "notification": "🎬 街头风格日！出门捕捉好看的穿搭。"},
+        {"day": "周四", "time": "20:00", "platform": "小红书", "content_type": "文化与风格", "notification": "✨ 分享你的文化风格故事 — 要有个人的温度。"},
+        {"day": "周五", "time": "18:30", "platform": "抖音", "content_type": "二手改造", "notification": "🛍️ 本周第二次改造！试试不同的风格。"}
     ],
     "cross_posting_tips": [
-        "Trim TikTok vertical videos to 9:16 for Instagram Reels — add subtle caption overlays",
-        "Share behind-the-scenes photos from TikTok shoots on Instagram Stories",
-        "Use the same hashtag strategy across both platforms for brand consistency"
+        "将抖音竖版视频裁剪为 9:16 发到小红书 — 添加文字说明",
+        "把抖音拍摄的花絮照片分享到小红书故事",
+        "两个平台使用相同的话题标签策略保持品牌一致性"
     ],
-    "optimal_frequency": "5 posts/week (3 TikTok + 2 Instagram)"
+    "optimal_frequency": "每周 5 条（3 条抖音 + 2 条小红书）"
 }
 
 def _is_mock_mode() -> bool:

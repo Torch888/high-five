@@ -7,7 +7,7 @@ from utils.mock_data import MOCK_METRICS
 
 # ── Page config ────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="CreatorCrew",
+    page_title="CreatorCrew - 创作者团队",
     page_icon="🎨",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -161,7 +161,7 @@ if _is_mock_mode():
     st.sidebar.markdown(
         "<div style='background:#f59e0b20;border:1px solid #f59e0b50;border-radius:8px;"
         "padding:10px 14px;margin-bottom:16px;font-size:13px;'>"
-        "🧪 <b>Mock Mode</b> — 无 API key，显示模拟数据"
+        "🧪 <b>模拟模式</b> — 无 API key，使用模拟数据展示"
         "</div>",
         unsafe_allow_html=True,
     )
@@ -180,12 +180,12 @@ for k, v in {
 
 # ── Agent manifest ─────────────────────────────────────────────────
 AGENTS = [
-    ("audience",    "🔍", "Audience Intelligence",  "Profiling your ideal audience..."),
-    ("strategy",    "📋", "Content Strategy",       "Building your content plan..."),
-    ("content",     "✍️", "Content Generation",     "Drafting your first posts..."),
-    ("performance", "📊", "Performance Analyst",    "Analysing engagement patterns..."),
-    ("optimization","🎯", "Optimization",           "Finding improvement opportunities..."),
-    ("publishing",  "📅", "Publishing & Schedule",  "Setting your posting calendar..."),
+    ("audience",    "🔍", "受众洞察",   "正在分析你的理想受众..."),
+    ("strategy",    "📋", "内容策略",   "正在构建你的内容方案..."),
+    ("content",     "✍️", "内容生成",   "正在撰写你的首发帖子..."),
+    ("performance", "📊", "表现分析",   "正在分析互动数据..."),
+    ("optimization","🎯", "优化建议",   "正在寻找改进机会..."),
+    ("publishing",  "📅", "发布排期",   "正在设置你的发布日历..."),
 ]
 AGENT_MAP = {k: (icon, name, desc) for k, icon, name, desc in AGENTS}
 
@@ -203,7 +203,7 @@ def page_onboarding():
                 -webkit-background-clip:text;-webkit-text-fill-color:transparent;">Crew</span>
             </h1>
             <p style="color:rgba(255,255,255,0.45); font-size:19px; margin-top:10px; font-weight:400;">
-                Six AI agents. One goal: make you a full-time creator.
+                六个 AI 智能体，一个目标：帮你成为全职创作者。
             </p>
         </div>
         """,
@@ -214,13 +214,13 @@ def page_onboarding():
     with col:
         with st.form("onboarding"):
             st.markdown(
-                "<p style='color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:2px;'>QUESTION 1 OF 3</p>"
-                "<p style='color:white;font-size:19px;font-weight:600;margin-bottom:8px;'>Who are you?</p>",
+                "<p style='color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:2px;'>问题 1 / 3</p>"
+                "<p style='color:white;font-size:19px;font-weight:600;margin-bottom:8px;'>你是谁？</p>",
                 unsafe_allow_html=True,
             )
             q1 = st.text_area(
-                "Who are you",
-                placeholder="Tell us about yourself, your niche, where you're from…",
+                "你是谁",
+                placeholder="介绍一下你自己、你的领域、来自哪里…",
                 height=100,
                 key="input_q1",
                 label_visibility="collapsed",
@@ -228,13 +228,13 @@ def page_onboarding():
 
             st.markdown("<div style='height:12px;'></div>", unsafe_allow_html=True)
             st.markdown(
-                "<p style='color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:2px;'>QUESTION 2 OF 3</p>"
-                "<p style='color:white;font-size:19px;font-weight:600;margin-bottom:8px;'>What do you want to create?</p>",
+                "<p style='color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:2px;'>问题 2 / 3</p>"
+                "<p style='color:white;font-size:19px;font-weight:600;margin-bottom:8px;'>你想创作什么？</p>",
                 unsafe_allow_html=True,
             )
             q2 = st.text_area(
-                "What do you want to create",
-                placeholder="Platforms, formats, topics that excite you…",
+                "你想创作什么",
+                placeholder="平台、形式、让你兴奋的话题…",
                 height=100,
                 key="input_q2",
                 label_visibility="collapsed",
@@ -242,13 +242,13 @@ def page_onboarding():
 
             st.markdown("<div style='height:12px;'></div>", unsafe_allow_html=True)
             st.markdown(
-                "<p style='color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:2px;'>QUESTION 3 OF 3</p>"
-                "<p style='color:white;font-size:19px;font-weight:600;margin-bottom:8px;'>What do you want to achieve?</p>",
+                "<p style='color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:2px;'>问题 3 / 3</p>"
+                "<p style='color:white;font-size:19px;font-weight:600;margin-bottom:8px;'>你想达成什么目标？</p>",
                 unsafe_allow_html=True,
             )
             q3 = st.text_area(
-                "What do you want to achieve",
-                placeholder="Brand deals? Full-time creator? Build a community?",
+                "你想达成什么目标",
+                placeholder="品牌合作？全职创作者？建立社区？",
                 height=100,
                 key="input_q3",
                 label_visibility="collapsed",
@@ -256,12 +256,12 @@ def page_onboarding():
 
             st.markdown("<div style='height:20px;'></div>", unsafe_allow_html=True)
             submitted = st.form_submit_button(
-                "⚡ Activate My Crew", use_container_width=True, type="primary"
+                "⚡ 激活我的团队", use_container_width=True, type="primary"
             )
 
             if submitted:
                 if not q1.strip() or not q2.strip() or not q3.strip():
-                    st.error("Please answer all three questions to activate your crew.")
+                    st.error("请回答全部三个问题以激活你的团队。")
                 else:
                     st.session_state.q1 = q1
                     st.session_state.q2 = q2
@@ -270,19 +270,16 @@ def page_onboarding():
                     st.rerun()
 
         st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
-        if st.button("🎬  Load Demo — Diana V.", use_container_width=True):
+        if st.button("🎬  加载演示 — 小王（时尚创作者）", use_container_width=True):
             st.session_state.q1 = (
-                "I'm Diana, a Dominican-American fashion creator in Astoria, Queens. "
-                "I make content about styling outfits on a real budget — thrift finds, "
-                "street style, borough vibes."
+                "我是小王，住在上海的时尚创作者。我分享用真实预算搭配穿搭的内容 — "
+                "二手好物、街头风格、城市氛围。"
             )
             st.session_state.q2 = (
-                "I want to post outfit content on TikTok and Instagram, mixing thrift "
-                "flips with Queens street style shoots."
+                "我想在抖音和小红书上发布穿搭内容，把平价好物和街头风格结合起来。"
             )
             st.session_state.q3 = (
-                "I want to land brand deals with fashion brands and eventually go "
-                "full-time as a creator."
+                "我想和时尚品牌达成合作，最终成为一名全职创作者。"
             )
             st.session_state.page = "activating"
             st.rerun()
@@ -291,7 +288,7 @@ def page_onboarding():
         st.markdown("<div style='height:32px;'></div>", unsafe_allow_html=True)
         st.markdown(
             "<p style='color:rgba(255,255,255,0.3);font-size:12px;text-align:center;"
-            "letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;'>Your crew</p>",
+            "letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;'>你的团队</p>",
             unsafe_allow_html=True,
         )
         badge_cols = st.columns(6)
@@ -313,9 +310,9 @@ def page_activating():
     st.markdown(
         """
         <div style="text-align:center; padding: 40px 0 24px 0;">
-            <h2 style="color:white;font-size:34px;font-weight:700;margin:0;">Activating Your Crew</h2>
+            <h2 style="color:white;font-size:34px;font-weight:700;margin:0;">正在激活你的团队</h2>
             <p style="color:rgba(255,255,255,0.4);margin-top:8px;">
-                Six specialised AI agents are working on your strategy…
+                六个专业 AI 智能体正在为你制定策略…
             </p>
         </div>
         """,
@@ -333,7 +330,7 @@ def page_activating():
                     f"<div class='agent-idle'>"
                     f"<span style='font-size:22px;'>{icon}</span>"
                     f"<div><p style='color:rgba(255,255,255,0.3);margin:0;font-size:15px;'>{name}</p>"
-                    f"<p style='color:rgba(255,255,255,0.15);margin:0;font-size:12px;'>Waiting…</p></div>"
+                    f"<p style='color:rgba(255,255,255,0.15);margin:0;font-size:12px;'>等待中…</p></div>"
                     f"</div>",
                     unsafe_allow_html=True,
                 )
@@ -351,7 +348,7 @@ def page_activating():
                     f"<div class='agent-done'>"
                     f"<span style='font-size:22px;'>{icon}</span> "
                     f"<span style='color:#4ade80;font-weight:600;font-size:15px;'>{name}</span> "
-                    f"<span style='color:rgba(74,222,128,0.6);font-size:13px;'>✓ Complete</span>"
+                    f"<span style='color:rgba(74,222,128,0.6);font-size:13px;'>✓ 完成</span>"
                     f"</div>",
                     unsafe_allow_html=True,
                 )
@@ -369,7 +366,7 @@ def page_activating():
                 _, name, desc = AGENT_MAP[key]
                 status_msg.markdown(
                     f"<p style='color:rgba(255,255,255,0.4);text-align:center;font-size:14px;'>"
-                    f"{name} is working…</p>",
+                    f"{name} 正在工作中…</p>",
                     unsafe_allow_html=True,
                 )
             elif state == "done":
@@ -387,7 +384,7 @@ def page_activating():
         st.session_state.results = results
         status_msg.markdown(
             "<p style='color:#4ade80;text-align:center;font-weight:600;font-size:15px;'>"
-            "✓ Your crew is ready!</p>",
+            "✓ 你的团队已就绪！</p>",
             unsafe_allow_html=True,
         )
         time.sleep(1)
@@ -417,11 +414,11 @@ def page_dashboard():
             "<span style='background:linear-gradient(135deg,#a855f7,#ec4899);"
             "-webkit-background-clip:text;-webkit-text-fill-color:transparent;'>Crew</span>"
             "<span style='color:rgba(255,255,255,0.25);font-size:18px;font-weight:400;"
-            "margin-left:14px;'>Dashboard</span></h1>",
+            "margin-left:14px;'>控制台</span></h1>",
             unsafe_allow_html=True,
         )
     with col_reset:
-        if st.button("← Start Over", key="reset_top"):
+        if st.button("← 重新开始", key="reset_top"):
             for k in ["page", "results", "q1", "q2", "q3"]:
                 st.session_state.pop(k, None)
             st.rerun()
@@ -431,26 +428,26 @@ def page_dashboard():
     # ── KPI strip ──────────────────────────────────────────────────
     ov = metrics.get("overview", {})
     k1, k2, k3, k4 = st.columns(4)
-    k1.metric("Followers",       f"{ov.get('followers', 0):,}", f"+{ov.get('follower_growth_pct', 0)}%")
-    k2.metric("Avg Views",       f"{ov.get('avg_views', 0):,}")
-    k3.metric("Engagement Rate", f"{ov.get('engagement_rate', 0)}%")
-    k4.metric("Avg Shares",      f"{ov.get('avg_shares', 0):,}")
+    k1.metric("粉丝数",       f"{ov.get('followers', 0):,}", f"+{ov.get('follower_growth_pct', 0)}%")
+    k2.metric("平均观看",       f"{ov.get('avg_views', 0):,}")
+    k3.metric("互动率", f"{ov.get('engagement_rate', 0)}%")
+    k4.metric("平均分享",      f"{ov.get('avg_shares', 0):,}")
 
     st.markdown("<div style='height:24px;'></div>", unsafe_allow_html=True)
 
     # ── Tabs ───────────────────────────────────────────────────────
     tabs = st.tabs([
-        "👥 Audience",
-        "📋 Strategy",
-        "✍️ Content",
-        "🤝 Brand Deals",
-        "📅 Schedule",
-        "📊 Performance",
+        "👥 受众",
+        "📋 策略",
+        "✍️ 内容",
+        "🤝 品牌合作",
+        "📅 排期",
+        "📊 表现",
     ])
 
     # ── Tab 1: Audience ───────────────────────────────────────────
     with tabs[0]:
-        st.markdown("### Your Target Audience")
+        st.markdown("### 目标受众分析")
         left, right = st.columns(2)
 
         with left:
@@ -463,9 +460,9 @@ def page_dashboard():
                 f"<h3 style='color:#c084fc;margin-top:0;'>✨ {persona}</h3>"
                 f"<p style='color:rgba(255,255,255,0.75);'>{summary}</p>"
                 f"<hr style='border-color:rgba(255,255,255,0.08);'>"
-                f"<p style='color:rgba(255,255,255,0.4);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;'>Demographics</p>"
+                f"<p style='color:rgba(255,255,255,0.4);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;'>人口统计</p>"
                 f"<p style='color:white;margin-bottom:16px;'>{demo}</p>"
-                f"<p style='color:rgba(255,255,255,0.4);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;'>Most Active</p>"
+                f"<p style='color:rgba(255,255,255,0.4);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;'>最活跃时间</p>"
                 f"<p style='color:white;margin:0;'>{hours}</p>"
                 f"</div>",
                 unsafe_allow_html=True,
@@ -477,24 +474,24 @@ def page_dashboard():
             prefs     = audience.get("content_preferences", [])
 
             if platforms:
-                st.markdown("**Platforms**")
+                st.markdown("**平台**")
                 st.write("  ·  ".join(platforms))
             if pain_pts:
-                st.markdown("**Pain Points**")
+                st.markdown("**痛点**")
                 for p in pain_pts:
                     st.markdown(f"- {p}")
             if prefs:
-                st.markdown("**Content Preferences**")
+                st.markdown("**内容偏好**")
                 for p in prefs:
                     st.markdown(f"- {p}")
 
     # ── Tab 2: Strategy ───────────────────────────────────────────
     with tabs[1]:
-        st.markdown("### Content Strategy")
+        st.markdown("### 内容策略")
 
         pillars = strategy.get("content_pillars", [])
         if pillars:
-            st.markdown("#### Content Pillars")
+            st.markdown("#### 内容支柱")
             pcols = st.columns(min(len(pillars), 4))
             for i, p in enumerate(pillars[:4]):
                 with pcols[i % len(pcols)]:
@@ -511,12 +508,12 @@ def page_dashboard():
 
         sched = strategy.get("posting_schedule", {})
         if sched:
-            st.markdown("#### Posting Schedule")
+            st.markdown("#### 发布安排")
             sc1, sc2 = st.columns(2)
             for i, (platform, slots) in enumerate(sched.items()):
                 col = sc1 if i % 2 == 0 else sc2
                 with col:
-                    color = "#ff0050" if platform == "TikTok" else "#e1306c"
+                    color = "#ff0050" if platform in ("TikTok", "抖音") else "#e1306c"
                     st.markdown(
                         f"<p style='color:{color};font-weight:700;font-size:15px;margin-bottom:6px;'>{platform}</p>",
                         unsafe_allow_html=True,
@@ -526,7 +523,7 @@ def page_dashboard():
 
         roadmap = strategy.get("six_month_roadmap", [])
         if roadmap:
-            st.markdown("#### 6-Month Roadmap")
+            st.markdown("#### 六个月路线图")
             for item in roadmap:
                 rc1, rc2 = st.columns([1, 4])
                 with rc1:
@@ -536,37 +533,37 @@ def page_dashboard():
 
     # ── Tab 3: Content ─────────────────────────────────────────────
     with tabs[2]:
-        st.markdown("### Generated Content")
+        st.markdown("### 生成内容")
         scripts = content.get("scripts", [])
         if scripts:
             for script in scripts:
-                label = f"📱 {script.get('title','Script')}  ·  {script.get('platform','')}"
+                label = f"📱 {script.get('title','脚本')}  ·  {script.get('platform','')}"
                 with st.expander(label, expanded=False):
                     left, right = st.columns([1, 3])
                     with left:
-                        st.markdown(f"**Pillar:** {script.get('pillar','')}")
-                        st.markdown(f"**Platform:** {script.get('platform','')}")
+                        st.markdown(f"**支柱:** {script.get('pillar','')}")
+                        st.markdown(f"**平台:** {script.get('platform','')}")
                     with right:
-                        st.markdown(f"**🎣 Hook**\n\n{script.get('hook','')}")
-                        st.markdown(f"**📝 Script**\n\n{script.get('content','')}")
-                        st.markdown(f"**📣 CTA:** {script.get('cta','')}")
+                        st.markdown(f"**🎣 钩子**\n\n{script.get('hook','')}")
+                        st.markdown(f"**📝 脚本**\n\n{script.get('content','')}")
+                        st.markdown(f"**📣 行动号召:** {script.get('cta','')}")
                         tags = script.get("hashtags", [])
                         if tags:
-                            st.markdown("**🏷️ Hashtags:** " + "  ".join(tags))
+                            st.markdown("**🏷️ 标签:** " + "  ".join(tags))
         else:
-            st.info("No scripts generated yet.")
+            st.info("暂无生成脚本。")
 
         pitch = content.get("pitch_email", {})
         if pitch:
             st.markdown("---")
             st.markdown("### 📧 Brand Pitch Email")
-            st.markdown(f"**To:** {pitch.get('brand','')}")
-            st.markdown(f"**Subject:** {pitch.get('subject','')}")
-            st.text_area("Email Body", pitch.get("body", ""), height=220, key="pitch_body")
+            st.markdown(f"**致:** {pitch.get('brand','')}")
+            st.markdown(f"**主题:** {pitch.get('subject','')}")
+            st.text_area("邮件正文", pitch.get("body", ""), height=220, key="pitch_body")
 
     # ── Tab 4: Brand Deals ─────────────────────────────────────────
     with tabs[3]:
-        st.markdown("### Brand Deal Pipeline")
+        st.markdown("### 品牌合作渠道")
         brands = strategy.get("target_brands", [])
         if brands:
             for brand in brands:
@@ -576,19 +573,19 @@ def page_dashboard():
                     st.caption(brand.get("category", ""))
                 with b2:
                     trigger = brand.get("follower_trigger", "")
-                    st.markdown(f"🎯 Reach out at **{trigger}**")
+                    st.markdown(f"🎯 达到 **{trigger}** 后联系")
                 with b3:
                     st.markdown(brand.get("fit_reason", ""))
                 st.divider()
         else:
-            st.info("No brand targets generated yet.")
+            st.info("暂无品牌目标。")
 
     # ── Tab 5: Schedule ────────────────────────────────────────────
     with tabs[4]:
         toggle_col, _ = st.columns([1, 3])
         with toggle_col:
             auto = st.toggle(
-                "⚡ Auto-Publish",
+                "⚡ 自动发布",
                 value=st.session_state.auto_publish,
                 key="auto_toggle",
             )
@@ -596,16 +593,16 @@ def page_dashboard():
             st.session_state.auto_publish = auto
 
         if auto:
-            st.success("Auto-publish is **ON** — your posts will be queued and published automatically at each scheduled time.")
+            st.success("自动发布 **已开启** — 你的帖子将在每个预定时间自动排队发布。")
         else:
-            st.info("Auto-publish is **OFF** — you'll receive a notification at each posting time to publish manually.")
+            st.info("自动发布 **已关闭** — 你会在每个发布时间收到通知并手动发布。")
 
         schedule = publishing.get("weekly_schedule", [])
         if schedule:
-            st.markdown("### Weekly Posting Calendar")
+            st.markdown("### 每周发布日历")
             for slot in schedule:
                 platform = slot.get("platform", "")
-                color = "#ff0050" if platform == "TikTok" else "#e1306c"
+                color = "#ff0050" if platform in ("TikTok", "抖音") else "#e1306c"
                 d1, d2, d3, d4 = st.columns([1, 1, 2, 2])
                 with d1:
                     st.markdown(f"**{slot.get('day', '')}**")
@@ -623,27 +620,27 @@ def page_dashboard():
                         st.caption(f"🔔 {notif}")
                 st.divider()
         else:
-            st.info("Schedule not generated yet.")
+            st.info("暂无生成排期。")
 
         tips = publishing.get("cross_posting_tips", [])
         if tips:
-            st.markdown("### Cross-Posting Tips")
+            st.markdown("### 跨平台发布建议")
             for tip in tips:
                 st.markdown(f"• {tip}")
 
     # ── Tab 6: Performance ─────────────────────────────────────────
     with tabs[5]:
-        st.markdown("### Performance Dashboard")
-        st.caption("⚠️  Simulated metrics shown for demo purposes — real data updates automatically as you post.")
+        st.markdown("### 表现分析面板")
+        st.caption("⚠️  模拟数据仅用于演示 — 实际数据会随发帖自动更新。")
 
         posts = metrics.get("posts", [])
         if posts:
-            st.markdown("#### Recent Posts")
+            st.markdown("#### 最近帖子")
             for post in posts:
                 p1, p2, p3, p4 = st.columns([3, 1, 1, 1])
                 with p1:
                     platform = post.get("platform", "")
-                    color = "#ff0050" if platform == "TikTok" else "#e1306c"
+                    color = "#ff0050" if platform in ("TikTok", "抖音") else "#e1306c"
                     st.markdown(
                         f"**{post['title']}**  "
                         f"<span style='color:{color};font-size:12px;font-weight:600;'>{platform}</span>",
@@ -651,31 +648,31 @@ def page_dashboard():
                     )
                     st.caption(post.get("pillar", ""))
                 with p2:
-                    st.metric("Views",  f"{post['views']:,}")
+                    st.metric("观看",  f"{post['views']:,}")
                 with p3:
-                    st.metric("Likes",  f"{post['likes']:,}")
+                    st.metric("点赞",  f"{post['likes']:,}")
                 with p4:
-                    st.metric("Shares", f"{post['shares']:,}")
+                    st.metric("分享", f"{post['shares']:,}")
                 st.divider()
 
         insights = performance.get("insights", [])
         if insights:
-            st.markdown("#### AI Insights")
+            st.markdown("#### AI 洞察")
             for ins in insights:
                 st.markdown(f"💡 {ins}")
 
         recs = optimization.get("recommendations", [])
         if recs:
-            st.markdown("#### Optimization Recommendations")
+            st.markdown("#### 优化建议")
             for rec in recs:
                 st.markdown(f"**{rec.get('action','')}**")
                 st.caption(
-                    f"Why: {rec.get('reason','')}  →  Expected: {rec.get('expected_impact','')}"
+                    f"原因: {rec.get('reason','')}  →  预期效果: {rec.get('expected_impact','')}"
                 )
 
         wins = optimization.get("quick_wins", [])
         if wins:
-            st.markdown("#### Quick Wins")
+            st.markdown("#### 快速取胜")
             for w in wins:
                 st.markdown(f"⚡ {w}")
 
