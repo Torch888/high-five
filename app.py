@@ -2,7 +2,7 @@ import time
 import json
 import streamlit as st
 
-from agents.pipeline import run_full_pipeline
+from agents.pipeline import run_full_pipeline, _is_mock_mode
 from utils.mock_data import MOCK_METRICS
 
 # ── Page config ────────────────────────────────────────────────────
@@ -155,6 +155,16 @@ hr { border-color: rgba(255,255,255,0.08) !important; }
 """,
     unsafe_allow_html=True,
 )
+
+# ── Mock mode indicator ────────────────────────────────────────────
+if _is_mock_mode():
+    st.sidebar.markdown(
+        "<div style='background:#f59e0b20;border:1px solid #f59e0b50;border-radius:8px;"
+        "padding:10px 14px;margin-bottom:16px;font-size:13px;'>"
+        "🧪 <b>Mock Mode</b> — 无 API key，显示模拟数据"
+        "</div>",
+        unsafe_allow_html=True,
+    )
 
 # ── Session state defaults ─────────────────────────────────────────
 for k, v in {
