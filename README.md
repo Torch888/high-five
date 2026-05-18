@@ -1,70 +1,70 @@
-# CreatorCrew 🎨
+# CreatorCrew 🎨 — 创作者团队
 
-**Six AI agents. One goal: make you a full-time creator.**
+**六个 AI 智能体，一个目标：帮你成为全职创作者。**
 
-CreatorCrew is a multi-agent AI platform built for content creators. Describe yourself, your content, and your goals — and a crew of six specialised agents will build your complete creator strategy in minutes.
-
-Live app: [https://high-five-qknaby4vc4w5zqstwsmcgk.streamlit.app](https://high-five-qknaby4vc4w5zqstwsmcgk.streamlit.app)
+CreatorCrew 是一个为内容创作者打造的多智能体 AI 平台。描述你自己、你的内容和你的目标 —— 六个专业 AI 智能体将为你构建完整的创作者策略，只需几分钟。
 
 ---
 
-## What It Does
+## 功能简介
 
-CreatorCrew runs six AG2 agents in sequence, each tackling a different part of the creator journey:
+CreatorCrew 依次运行六个 AG2 智能体，各自负责创作者旅程的不同环节：
 
-| Agent | Role |
-|---|---|
-| 🔍 Audience Intelligence | Profiles your ideal target audience |
-| 📋 Content Strategy | Builds your content pillars, posting schedule, and brand roadmap |
-| ✍️ Content Generation | Writes ready-to-post TikTok/Instagram scripts and a brand pitch email |
-| 📊 Performance Analyst | Interprets engagement metrics and surfaces key insights |
-| 🎯 Optimization | Turns data into prioritised improvements and A/B tests |
-| 📅 Publishing & Schedule | Creates a weekly posting calendar with reminders |
+| 智能体 | 职责 |
+|--------|------|
+| 🔍 受众洞察 | 分析你的理想目标受众画像 |
+| 📋 内容策略 | 构建内容支柱、发布计划和品牌路线图 |
+| ✍️ 内容生成 | 撰写可直接发布的抖音/小红书脚本和品牌合作邮件 |
+| 📊 表现分析 | 解读互动数据，挖掘核心洞察 |
+| 🎯 优化建议 | 将数据转化为优先级改进方案和 A/B 测试 |
+| 📅 发布排期 | 创建每周发布日历和提醒 |
 
 ---
 
-## Tech Stack
+## 技术栈
 
-- **[AG2](https://github.com/ag2ai/ag2)** — multi-agent AI framework (ConversableAgent + UserProxyAgent)
+- **[AG2](https://github.com/ag2ai/ag2)** — 多智能体 AI 框架（ConversableAgent + UserProxyAgent）
 - **Google Gemini 2.5 Flash** via OpenRouter
-- **Tavily** — live web search for audience and brand research
-- **Streamlit** — web UI with a dark purple/pink theme
-- **Python 3.11**
+- **Tavily** — 实时网络搜索用于受众和品牌调研
+- **Streamlit** — Web UI，暗色紫粉主题
+- **Python 3.11+**
 
 ---
 
-## Getting Started
+## 快速开始
 
-### 1. Clone the repo
+### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/shageenthsandrakumar/high-five.git
+git clone https://github.com/Torch888/high-five.git
 cd high-five
 ```
 
-### 2. Create a virtual environment
+### 2. 创建虚拟环境
 
 ```bash
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 ```
 
-### 3. Install dependencies
+### 3. 安装依赖
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Add your API keys
+### 4. 配置 API 密钥（可选）
 
-Create a `.env` file in the project root:
+创建 `.env` 文件（不配置也能运行，会自动使用模拟模式）：
 
 ```
 OPENROUTER_API_KEY=your_openrouter_key_here
 TAVILY_API_KEY=your_tavily_key_here
 ```
 
-### 5. Run the app
+> **💡 模拟模式：** 如果没有 API 密钥，应用会自动进入模拟模式，使用预设的中文模拟数据展示全部功能。侧边栏会显示"模拟模式"标识。
+
+### 5. 运行应用
 
 ```bash
 streamlit run app.py
@@ -72,17 +72,17 @@ streamlit run app.py
 
 ---
 
-## Project Structure
+## 项目结构
 
 ```
 high-five/
-├── app.py                  # Streamlit UI (onboarding → activating → dashboard)
+├── app.py                  # Streamlit UI（引导页 → 激活中 → 控制台）
 ├── agents/
-│   ├── config.py           # LLM config (OpenRouter / Gemini)
-│   └── pipeline.py         # All 6 agents + orchestrator
+│   ├── config.py           # LLM 配置（OpenRouter / Gemini）
+│   └── pipeline.py         # 6 个智能体 + 编排器 + 模拟数据
 ├── utils/
-│   ├── search.py           # Tavily web search wrapper
-│   └── mock_data.py        # Simulated TikTok/Instagram metrics
+│   ├── search.py           # Tavily 网络搜索封装
+│   └── mock_data.py        # 模拟互动数据（中文）
 ├── requirements.txt
 └── .streamlit/
     └── config.toml
@@ -90,35 +90,25 @@ high-five/
 
 ---
 
-## How We Built It
-We built CreatorCrew in one day at the AG2 Hackathon in NYC. The core of the app is a six-agent pipeline powered by AG2 (formerly AutoGen), where each agent has a single responsibility — from profiling the audience to generating scripts to scheduling posts. We used Google Gemini 2.5 Flash via OpenRouter as the LLM backbone, Tavily for live web search to ground the agents in real data, and Streamlit to ship a polished UI fast.
+## 关于本项目
+
+本项目基于 AG2 Hackathon（纽约，2026 年 5 月）的获奖项目 **CreatorCrew** 改造而来。
+
+### 本仓库的改进
+
+- 🌐 **全界面中文化** — 所有 UI 文字、模拟数据均已翻译为中文
+- 🧪 **模拟模式** — 无需 API 密钥即可体验全部功能
+- 📱 **平台适配** — 针对抖音/小红书等国内平台进行了调整
 
 ---
 
-## Demo & Screenshots
+## 部署
 
-<!-- ✏️ SUSAN — add a short description of the demo flow here, or paste in a screenshot link. Then commit it! -->
-
----
-
-## Meet the Team
-
-**Shageenth Sandrakumar** — Project Co-Lead. Built and deployed the entire CreatorCrew application, architected the six-agent AG2 pipeline, and managed the end-to-end technical execution.
-
-**Miriam Contino** — Co-created the pitch presentation, produced the demo video, and contributed 35% of the Product Requirements Document.
-
-**TaliZ** — Project Co-Lead. Project Ideation, created the pitch presentation and contributed 30% of the Product Requirements Document.
-
-**Susan** — Contributed 35% of the Product Requirements Document.
+应用可部署在 **Streamlit Cloud** 上。密钥通过 Streamlit Cloud 的 Secrets 管理。
 
 ---
 
-## Deployment
+## 致谢
 
-The app is deployed on **Streamlit Cloud**. Secrets are managed via the Streamlit Cloud UI
-
----
-
-## Built At
-
-AG2 Hackathon — New York City, May 2026
+- 原作团队：Shageenth Sandrakumar, Miriam Contino, TaliZ, Susan
+- AG2 Hackathon — New York City, May 2026
